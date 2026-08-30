@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111827" />
+    <title>CineWave | Book cinema tickets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="CineWave home"><span class="brand-mark">C</span><span>CineWave</span></a>
+      <nav aria-label="Main navigation"><a href="#home">Discover</a><a href="#bookings">My bookings</a><button class="text-button" id="staff-toggle">Staff dashboard</button></nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div><p class="eyebrow">THE BIG SCREEN AWAITS</p><h1>Find your next<br /><em>great story.</em></h1><p class="hero-copy">Reserve the best seat in the house. Every booking is confirmed in a few thoughtful steps.</p><a class="primary-button" href="#booking">Book tickets <span>→</span></a></div>
+        <div class="hero-poster"><div class="poster-glow"></div><p>NOW SHOWING</p><strong>STARS<br />IN THE<br />DARK</strong><span>A CINEWAVE ORIGINAL</span></div>
+      </section>
+
+      <section class="film-section" aria-labelledby="now-playing"><div class="section-heading"><div><p class="eyebrow">CURATED FOR YOU</p><h2 id="now-playing">Now playing</h2></div><span>Choose a film to begin</span></div><div class="movie-grid" id="movie-grid"></div></section>
+
+      <section class="booking-section" id="booking">
+        <aside class="booking-intro"><p class="eyebrow">YOUR CINEMA NIGHT</p><h2>Make it<br /><em>yours.</em></h2><p>Tell us what you would like to see. We will check availability, calculate your total and hold your selection for confirmation.</p><div class="lifecycle"><span class="active">1</span><i></i><span>2</span><i></i><span>3</span><i></i><span>4</span><small>Request · Check · Confirm · Tickets</small></div></aside>
+        <form class="booking-card" id="booking-form">
+          <div class="form-heading"><h3>Request tickets</h3><p>All fields are required.</p></div>
+          <label>Full name<input id="customer-name" name="customerName" required placeholder="e.g. Priya Sharma" /></label>
+          <label>Email address<input id="customer-email" name="customerEmail" type="email" required placeholder="you@example.com" /></label>
+          <div class="two-col"><label>Movie<select id="movie" name="movie" required></select></label><label>Show type<select id="show-type" name="showType"><option value="Standard">Standard</option><option value="Premium">Premium / Special</option></select></label></div>
+          <div class="two-col"><label>Date<input id="show-date" name="showDate" type="date" required /></label><label>Showtime<select id="show-time" name="showTime" required><option>12:30 PM</option><option>4:15 PM</option><option>7:30 PM</option><option>10:15 PM</option></select></label></div>
+          <div class="two-col"><label>Tickets<input id="tickets" name="tickets" type="number" min="1" max="8" value="2" required /></label><label>Format<select id="format" name="format"><option value="2D">2D</option><option value="IMAX">IMAX</option><option value="4DX">4DX</option></select></label></div>
+          <button class="primary-button form-submit" type="submit">Check availability <span>→</span></button>
+        </form>
+      </section>
+
+      <section class="bookings-section" id="bookings"><div class="section-heading"><div><p class="eyebrow">YOUR ACTIVITY</p><h2>My bookings</h2></div><button class="text-button" id="clear-bookings">Clear demo data</button></div><div id="booking-list" class="booking-list"></div></section>
+    </main>
+
+    <dialog id="availability-dialog" class="dialog"><div id="availability-content"></div></dialog>
+    <dialog id="confirmation-dialog" class="dialog"><div id="confirmation-content"></div></dialog>
+    <dialog id="staff-dialog" class="staff-dialog"><button class="close-button" data-close="staff-dialog" aria-label="Close">×</button><p class="eyebrow">BOOKING OPERATIONS</p><h2>Staff dashboard</h2><div class="metrics" id="metrics"></div><h3>Open case queue</h3><div id="staff-list"></div></dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
